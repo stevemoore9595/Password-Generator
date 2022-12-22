@@ -30,8 +30,13 @@ function generatePassword() {
 }
 
 var password = "";
-for (var i = 0; i < length; i++) {
 
+for (var i = 0; i < length; i++) {
+var randomIndex = Math.floor(Math.random() *allChars.length);
+var randomChar = allChars[randomIndex];
+password += randomChar;
 }
+
+return password;
 // Add event listener to generate button
 generateBtn.addEventListener("click", generatePassword);

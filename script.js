@@ -1,20 +1,28 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-
+var characterTypes = "";
 // Write password to the #password input
-function generatePassword() {
-  var length= prompt("How many characters would you like your password to contain? (between 10 and 130 characters):");
-
-  //var passwordText = document.querySelector("#password");
-
- // passwordText.value = password;
-
+var passwordLength = 10
+function passwordPrompt() {
+  var passLengthInput = prompt("select a password length");
+  if (passLengthInput < 10 || passLengthInput > 130) {
+    alert("Password needs to be between 10 and 130 characters):");
+    passwordPrompt()
+ } else {
+  passwordLength = passLengthInput
+ }
+  
   var includeSpecialCharacters = confirm("Click Ok to include special characters in the password");
   var includeLowercase = confirm("Click Ok to include lowercase letters in the password");
   var includeUppercase = confirm("Click Ok to include uppercase letters in the password");
   var includeNumbers = confirm("Click Ok to include numbers in the password");
-
-  var characterTypes = "";
+  
+  if (includeNumbers === false) {
+    alert("Choose one")
+  passwordPrompt()
+}
+  
+  
   if (includeSpecialCharacters) {
     characterTypes += "~`!@#$%^&*()_-+={[}]|\:;'<,>.?/";
   }
@@ -29,14 +37,24 @@ function generatePassword() {
   }
 }
 
-var password = "";
+function generatePassword() {
+  var finishedPassword = "";
+for (var i = 0; i < passwordLength; i++) {
+var randomNumber = Math.floor(Math.random() * characterTypes.length);
+finishedPassword += characterTypes[randomNumber];
 
-for (var i = 0; i < length; i++) {
-var randomIndex = Math.floor(Math.random() *allChars.length);
-var randomChar = allChars[randomIndex];
-password += randomChar;
+}
+console.log(finishedPassword)
+var securePassword = document.getElementById("password")
+securePassword.innerHTML = finishedPassword
 }
 
-return password;
-// Add event listener to generate button
+
+
+
 generateBtn.addEventListener("click", generatePassword);
+var copyText = document.querySelector("#generate");
+//copyText.select();
+//copyText.setSelectionRange(10, 130);
+
+passwordPrompt();

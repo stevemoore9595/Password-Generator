@@ -35,3 +35,5 @@ The deployed application can be found at this link:
 ## License
 
 Please refer to the LICENSE in the repository
+
+![Password Generator](https://user-images.githubusercontent.com/38742748/209286593-ecdb7edd-3e32-4b0d-8694-ffe990684749.png)

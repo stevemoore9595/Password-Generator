@@ -30,7 +30,7 @@ THEN the password is either displayed in an alert or written to the page
 
 ## Deployed Application
 
-The deployed application can be found at this link:
+The deployed application can be found at this link: https://stevemoore9595.github.io/Password-Generator/
 
 ## License
 
